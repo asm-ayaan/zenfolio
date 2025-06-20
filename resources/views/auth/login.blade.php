@@ -46,6 +46,10 @@
                                 <h1>Login</h1>
                                 <p class="text-body-secondary">Sign In to your account</p>
 
+                                @if (session('status'))
+                                    <div class="alert alert-success">{{ session('status') }}</div>
+                                @endif
+
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="mb-3">
