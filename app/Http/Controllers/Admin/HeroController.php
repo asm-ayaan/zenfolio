@@ -74,7 +74,7 @@ class HeroController extends Controller
         $heroSection = HeroSection::first();
 
         if($request->hasFile('image')) {
-            $imagePath = $this->uploadImage($request->file('image'));
+            $imagePath = $this->uploadImage($request->file('image'), $heroSection?->image);
         }else {
             $imagePath = $heroSection?->image ?? null;
         }

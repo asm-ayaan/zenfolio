@@ -18,6 +18,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
+                                <div>
+                                    <img width="150" src="{{ asset($hero->image) }}" alt="">
+                                </div>
                                 <label for="" class="form-label mb-2">Image</label>
                                 <input type="file" class="form-control mb-2" name="image" id="image">
                                 @if($errors->has('image'))
