@@ -96,6 +96,9 @@ class HeroController extends Controller
             ]
 
         );
+        
+
+        noty()->success("Updated successfully");
 
         return redirect()->back();
     }
