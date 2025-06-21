@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\HeroSection;
+use App\Traits\HandleImageUpload;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
 {
+    use HandleImageUpload;
+
     /**
      * Display a listing of the resource.
      */
@@ -68,11 +71,18 @@ class HeroController extends Controller
             'counter_title_four' => ['nullable', 'string', 'max:255'],
         ]);
 
+        $heroSection = HeroSection::first();
+
+        if($request->hasFile('image')) {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }else {
+            $imagePath = $heroSection?->image ?? null;
+        }
 
         HeroSection::updateOrCreate(
             ['id' => 1],
             [
-                'image' => '',
+                'image' => $imagePath,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
                 'counter_one' => $request->counter_one,
