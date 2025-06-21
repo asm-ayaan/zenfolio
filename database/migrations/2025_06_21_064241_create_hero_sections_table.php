@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('title');
             $table->string('subtitle');
-            
+
             $table->string('counter_one')->nullable();
             $table->string('counter_title_one')->nullable();
 
-            $table->string('counter_tow')->nullable();
+            $table->string('counter_two')->nullable();
             $table->string('counter_title_two')->nullable();
 
             $table->string('counter_three')->nullable();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\HeroSection;
 use Illuminate\Http\Request;
 
 class HeroController extends Controller
@@ -12,7 +13,8 @@ class HeroController extends Controller
      */
     public function index()
     {
-        return view('admin.hero.index');
+        $hero = HeroSection::first();
+        return view('admin.hero.index', compact('hero'));
     }
 
     /**
@@ -52,7 +54,40 @@ class HeroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'image' => ['nullable', 'image', 'max:2048'],
+            'title' => ['required', 'string', 'max:255'],
+            'subtitle' => ['required', 'string', 'max:255'],
+            'counter_one' => ['nullable', 'string', 'max:255'],
+            'counter_title_one' => ['nullable', 'string', 'max:255'],
+            'counter_two' => ['nullable', 'string', 'max:255'],
+            'counter_title_two' => ['nullable', 'string', 'max:255'],
+            'counter_three' => ['nullable', 'string', 'max:255'],
+            'counter_title_three' => ['nullable', 'string', 'max:255'],
+            'counter_four' => ['nullable', 'string', 'max:255'],
+            'counter_title_four' => ['nullable', 'string', 'max:255'],
+        ]);
+
+
+        HeroSection::updateOrCreate(
+            ['id' => 1],
+            [
+                'image' => '',
+                'title' => $request->title,
+                'subtitle' => $request->subtitle,
+                'counter_one' => $request->counter_one,
+                'counter_title_one' => $request->counter_title_one,
+                'counter_two' => $request->counter_two,
+                'counter_title_two' => $request->counter_title_two,
+                'counter_three' => $request->counter_three,
+                'counter_title_three' => $request->counter_title_three,
+                'counter_four' => $request->counter_four,
+                'counter_title_four' => $request->counter_title_four,
+            ]
+
+        );
+
+        return redirect()->back();
     }
 
     /**
