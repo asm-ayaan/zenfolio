@@ -5,6 +5,8 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+/** Frontend Routes */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 

@@ -4,11 +4,10 @@
                 <div class="container">
                     <div class="text-center mb-5">
                         <div class="profile-image-wrapper mb-4">
-                            <img src="./images/profile.png" class="profile-image" alt="Profile">
+                            <img src="{{ asset($hero->image) }}" class="profile-image" alt="Profile">
                         </div>
-                        <h1 class="hero-title fade-in">Building digital products,<br>brands, and experience.</h1>
-                        <p class="hero-subtitle fade-in">Hi! I'm a passionate Multimedia Experience Creator Your
-                            Collection</p>
+                        <h1 class="hero-title fade-in">{!! textPeruser($hero->title) !!}</h1>
+                        <p class="hero-subtitle fade-in">{!! textPeruser($hero->subtitle) !!}</p>
                         <a href="#contact" class="btn btn-primary-custom fade-in">Let's Talk</a>
                     </div>
 
@@ -16,26 +15,26 @@
                     <div class="row stats-section text-center">
                         <div class="col-md-3 col-6 mb-4">
                             <div class="stats-item fade-in">
-                                <h3>60+</h3>
-                                <p>Projects<br>Completed</p>
+                                <h3>{{ $hero->counter_one }}</h3>
+                                <p>{!! textPeruser($hero->counter_title_one) !!}</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-6 mb-4">
                             <div class="stats-item fade-in">
-                                <h3>08</h3>
-                                <p>Years of<br>Experience</p>
+                                <h3>{{ $hero->counter_two }}</h3>
+                                <p>{!! textPeruser($hero->counter_title_two) !!}</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-6 mb-4">
                             <div class="stats-item fade-in">
-                                <h3>50+</h3>
-                                <p>Happy<br>Clients</p>
+                                <h3>{{ $hero->counter_three }}</h3>
+                                <p>{!! textPeruser($hero->counter_title_three) !!}</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-6 mb-4">
                             <div class="stats-item fade-in">
-                                <h3>10+</h3>
-                                <p>Awards<br>Winning</p>
+                                <h3>{{ $hero->counter_four }}</h3>
+                                <p>{!! textPeruser($hero->counter_title_four) !!}</p>
                             </div>
                         </div>
                     </div>
