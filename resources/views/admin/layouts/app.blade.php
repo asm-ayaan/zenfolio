@@ -39,6 +39,8 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link href="{{ asset('assets/css/examples.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-iconpicker.min.css') }}">
     <script src="{{ asset('assets/js/config.js') }}"></script>
     <script src="{{ asset('assets/js/color-modes.js') }}"></script>
     {{-- <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet"> --}}
@@ -56,6 +58,8 @@
       </footer>
     </div>
     <!-- CoreUI and necessary plugins-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/simplebar/js/simplebar.min.js') }}"></script>
     <script>
@@ -71,6 +75,7 @@
     {{-- <script src="vendors/chart.js/js/chart.umd.js"></script> --}}
     {{-- <script src="vendors/@coreui/chartjs/js/coreui-chartjs.js"></script> --}}
     <script src="{{ asset('assets/vendors/@coreui/utils/js/index.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-iconpicker.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
     </script>

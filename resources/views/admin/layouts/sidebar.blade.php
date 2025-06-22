@@ -29,6 +29,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('service-section.index') }}"><span class="nav-icon"><span
+                                class="nav-icon-bullet"></span></span> Service Section
+                    </a>
+                </li>
+
             </ul>
         </li>
 
