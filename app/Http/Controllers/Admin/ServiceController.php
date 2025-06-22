@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class ServiceController extends Controller
      */
     public function index() : View
     {
-        return view('admin.service.index');
+        $services = Service::paginate(20);
+        return view('admin.service.index', compact('services'));
     }
 
     /**
@@ -29,7 +31,21 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'icon' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:1000'],
+        ]);
+
+        $service = new Service();
+        $service->icon = $request->icon;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->save();
+
+        noty()->success("Created successfully");
+
+        return redirect()->route('service-section.index');
     }
 
     /**
@@ -45,7 +61,9 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $service = Service::findOrFail($id);
+
+        return view('admin.service.edit', compact('service'));
     }
 
     /**
@@ -53,7 +71,21 @@ class ServiceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         $request->validate([
+            'icon' => ['nullable', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:1000'],
+        ]);
+
+        $service = Service::findOrFail($id);
+        $request->filled('icon') ? $service->icon = $request->icon : null;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->save();
+
+        noty()->success("Created successfully");
+
+        return redirect()->route('service-section.index');
     }
 
     /**

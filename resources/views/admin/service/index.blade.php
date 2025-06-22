@@ -11,7 +11,31 @@
             </div>
 
             <div class="card-body text-dark">
-               
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Icon</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($services as $service)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td><i class="{{ $service->icon }}"></i></td>
+                            <td>{{ $service->title }}</td>
+                            <td>
+                                <a href="{{ route('service-section.edit', $service->id) }}" class=""><i class="fas fa-edit"></i></a> | 
+                                <a href="" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+
+                        @endforeach
+                      
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
