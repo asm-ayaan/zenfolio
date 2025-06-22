@@ -28,7 +28,7 @@
                             <td>{{ $service->title }}</td>
                             <td>
                                 <a href="{{ route('service-section.edit', $service->id) }}" class=""><i class="fas fa-edit"></i></a> | 
-                                <a href="" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{ route('service-section.destroy', $service->id) }}" class="text-danger delete-item"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
 
@@ -36,6 +36,7 @@
                       
                     </tbody>
                 </table>
+                {{ $services->links() }}
             </div>
         </div>
     </div>

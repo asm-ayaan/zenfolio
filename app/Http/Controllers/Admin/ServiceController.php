@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Contracts\View\View;
+use Illuminate\Filesystem\ServeFile;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+
+use function Pest\Laravel\json;
 
 class ServiceController extends Controller
 {
@@ -91,8 +95,11 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id) : JsonResponse
     {
-        //
+        $service = Service::findOrFail($id);
+        $service->delete();
+        noty()->success("Deleted successfully");
+        return response()->json(['status' => 'success', 'message' => 'Service deleted successfully']);
     }
 }
